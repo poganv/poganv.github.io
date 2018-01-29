@@ -42,3 +42,27 @@ function on_position_failure(e)
 	alert("I'm lost!");
 	
 }
+var img = document.getElementById("id_img");
+img.addEventListener("touchstart", on_touch_start);
+img.addEventListener("touchend", on_touch_end);
+
+
+function on_touch_start(e)
+{
+	e.preventDefault();
+	timer_id = setInterval(start_vibrate, 100);
+
+}
+
+//-----------------------------------------------
+function start_vibrate()
+{
+	window.navigator.vibrate(150);
+	
+}
+//------------------------------------------
+function on_touch_end()
+{
+	e.preventDefault();
+	clearInterval(timer_id);
+}
